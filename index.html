@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#fff8f0">
+<title>今天吃什麼？晚餐轉盤</title>
+<style>
+:root{--cream:#fff8f0;--ink:#38404a;--muted:#78808a;--pink:#ffb8c6;--pink-dark:#e87591;--line:#f0e6dc;--shadow:0 14px 40px rgba(91,69,53,.09)}*{box-sizing:border-box}body{margin:0;min-height:100vh;color:var(--ink);background:radial-gradient(circle at 8% 7%,rgba(255,184,198,.25),transparent 23rem),radial-gradient(circle at 95% 25%,rgba(185,223,244,.35),transparent 25rem),var(--cream);font-family:ui-rounded,"Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif}button{font:inherit;cursor:pointer}.page{width:min(1080px,calc(100% - 32px));margin:auto;padding:28px 0 36px}header{text-align:center;margin-bottom:24px}.eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid #f4dce0;background:rgba(255,255,255,.8);border-radius:999px;padding:7px 13px;color:#b85d75;font-size:.82rem;font-weight:800;letter-spacing:.04em}h1{font-size:clamp(2rem,5vw,3.25rem);margin:13px 0 7px;letter-spacing:-.04em}.subtitle{margin:0;color:var(--muted);line-height:1.7}.layout{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(300px,.95fr);gap:22px;align-items:stretch}.card{background:rgba(255,255,255,.9);border:1px solid rgba(240,230,220,.95);border-radius:26px;box-shadow:var(--shadow);padding:24px}.wheel-card{display:flex;flex-direction:column;align-items:center}.card-title{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}h2{font-size:1.15rem;margin:0}.tag{color:#657b88;background:#edf7fc;border-radius:999px;padding:6px 10px;font-size:.78rem;font-weight:750;white-space:nowrap}.wheel-wrap{width:min(100%,390px);aspect-ratio:1;position:relative;margin:4px auto 18px}canvas{display:block;width:100%;height:100%}.pointer{position:absolute;z-index:2;left:50%;top:-5px;transform:translateX(-50%);width:0;height:0;border-left:16px solid transparent;border-right:16px solid transparent;border-top:28px solid #e87591;filter:drop-shadow(0 3px 2px rgba(80,40,50,.15))}.hub{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:70px;height:70px;border:5px solid white;border-radius:50%;display:grid;place-items:center;background:#fff8f0;box-shadow:0 3px 12px rgba(70,55,45,.13);font-size:1.6rem;pointer-events:none}.spin-button{border:0;color:#fff;font-weight:850;font-size:1.05rem;padding:14px 30px;border-radius:999px;background:linear-gradient(135deg,#f28da7,#e87591);box-shadow:0 8px 0 #cf617b,0 12px 22px rgba(232,117,145,.25);transition:transform .15s,box-shadow .15s}.spin-button:hover{transform:translateY(-2px);box-shadow:0 10px 0 #cf617b,0 14px 24px rgba(232,117,145,.25)}.spin-button:active{transform:translateY(4px);box-shadow:0 3px 0 #cf617b}.spin-button:disabled{opacity:.6;cursor:wait;transform:none}.hint{color:var(--muted);font-size:.88rem;text-align:center;line-height:1.6;margin:17px 0 0}.result-card{display:flex;flex-direction:column}.result-box{background:linear-gradient(145deg,#fff8f0,#fff1f4);border:1px solid #f7e3e4;border-radius:20px;padding:20px;margin-bottom:18px}.result-label{font-size:.83rem;color:#b85d75;font-weight:800}.result-name{font-size:clamp(1.65rem,4vw,2.25rem);font-weight:900;letter-spacing:-.03em;margin:7px 0}.result-desc{color:#68717c;line-height:1.7;margin:0}.meta-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}.meta{background:white;border:1px solid #f1e3df;border-radius:999px;padding:6px 10px;font-size:.82rem}.section-label{font-size:.92rem;font-weight:850;margin:3px 0 10px}.dish-list{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:20px}.dish{display:flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line);border-radius:13px;padding:10px 11px;color:#59616c;font-size:.9rem}.dish span{font-size:1.2rem}.dish small{color:#858b94}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}.secondary{border:1px solid #eadfe0;background:white;color:#5d6570;border-radius:999px;padding:10px 16px;font-weight:750}.secondary:hover{background:#fff5f7;border-color:#f2c5d0}.note{background:#f0f8fd;border:1px solid #dceef8;color:#5c7787;border-radius:16px;padding:13px 15px;font-size:.88rem;line-height:1.65;margin-top:17px}.footer{text-align:center;color:#8b9097;font-size:.8rem;margin-top:23px;line-height:1.6}.pop{animation:pop .38s ease-out}@keyframes pop{0%{transform:scale(.96);opacity:.6}70%{transform:scale(1.02)}100%{transform:scale(1);opacity:1}}@media(max-width:760px){.page{width:min(560px,calc(100% - 22px));padding-top:20px}.layout{grid-template-columns:1fr;gap:16px}.card{padding:18px;border-radius:22px}.wheel-wrap{width:min(100%,340px)}}@media(max-width:380px){.dish-list{grid-template-columns:1fr}.card-title{align-items:flex-start;flex-direction:column}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style></head>
+<body><main class="page"><header><div class="eyebrow">🍽️ DINNER PICKER · 今晚不糾結</div><h1>今天吃什麼？</h1><p class="subtitle">把選擇困難交給轉盤！轉一下，今晚就有答案。<br>不限地點・每餐預算 NT$250 以內</p></header>
+<section class="layout" aria-label="晚餐抽選工具"><div class="card wheel-card"><div class="card-title"><h2>🎡 晚餐命運轉盤</h2><span class="tag">晚餐限定</span></div><div class="wheel-wrap"><div class="pointer" aria-hidden="true"></div><canvas id="wheel" width="700" height="700" role="img" aria-label="晚餐料理抽選轉盤"></canvas><div class="hub" aria-hidden="true">🍴</div></div><button class="spin-button" id="spinButton">✨ 開始抽晚餐！</button><p class="hint" id="hint" aria-live="polite">準備好了嗎？按下按鈕，看看今晚的美食運勢！</p></div>
+<div class="card result-card"><div class="card-title"><h2>💌 今晚吃這個！</h2><span class="tag">NT$250 以內</span></div><div class="result-box" id="resultBox" aria-live="polite"><div class="result-label">你的晚餐提案</div><div class="result-name" id="resultName">還沒抽選喔！</div><p class="result-desc" id="resultDesc">深呼吸，讓轉盤幫你決定。每一道都是今晚的好選擇。</p><div class="meta-row" id="metaRow"><span class="meta">🍜 晚餐</span><span class="meta">💰 預算友善</span></div></div><div class="section-label">🍱 轉盤裡有哪些選項？</div><div class="dish-list" id="dishList"></div><div class="actions"><button class="secondary" id="againButton">🔄 再抽一次</button><button class="secondary" id="copyButton">📋 複製結果</button><button class="secondary" id="resetButton">↩️ 重設</button></div><div class="note"><strong>小提醒：</strong>價格會依店家、地區與份量不同而變動，轉盤是靈感推薦，不代表即時店家報價。若有過敏、飲食禁忌或特殊需求，記得先確認餐點內容。</div></div></section><p class="footer">Made for indecisive dinner people ♡<br>純前端小工具・不需登入、不會傳送個人資料</p></main>
+<script>
+'use strict';
+const dishes=[
+{name:'雞肉飯',emoji:'🍚',price:'約 NT$60–130',desc:'簡單又有飽足感，搭配青菜或湯品就是舒服的一餐。',color:'#ffd6a5'},
+{name:'牛肉麵',emoji:'🍜',price:'約 NT$150–250',desc:'想吃熱呼呼的一餐就選它，湯麵控今晚可以滿足了。',color:'#ffadad'},
+{name:'日式咖哩飯',emoji:'🍛',price:'約 NT$100–220',desc:'濃郁咖哩配上白飯，溫暖又不太需要思考的好選擇。',color:'#fdffb6'},
+{name:'水餃',emoji:'🥟',price:'約 NT$70–180',desc:'想吃得簡單又有變化，可以配酸辣湯或燙青菜。',color:'#caffbf'},
+{name:'鍋燒意麵',emoji:'🍲',price:'約 NT$100–180',desc:'有湯、有麵也能加配料，適合想吃暖心晚餐的時候。',color:'#9bf6ff'},
+{name:'滷肉飯＋配菜',emoji:'🍱',price:'約 NT$80–180',desc:'台式經典組合，依照食量搭配湯品和青菜很剛好。',color:'#a0c4ff'},
+{name:'韓式拌飯',emoji:'🥗',price:'約 NT$130–230',desc:'蔬菜、蛋和主食一次滿足，拌一拌就能開動。',color:'#bdb2ff'},
+{name:'義大利麵',emoji:'🍝',price:'約 NT$150–250',desc:'想換個口味時很適合，紅醬、白醬或清炒都可以。',color:'#ffc6ff'},
+{name:'壽司／丼飯',emoji:'🍣',price:'約 NT$120–250',desc:'清爽又有選擇，可以依預算挑壽司組合或丼飯。',color:'#ffd6e0'},
+{name:'越南河粉',emoji:'🍜',price:'約 NT$130–220',desc:'湯頭清爽、香草風味明亮，想吃不一樣的就選它。',color:'#d0f4de'},
+{name:'海南雞飯',emoji:'🍗',price:'約 NT$120–220',desc:'雞肉配飯與醬料，口味清爽又很有完整一餐的感覺。',color:'#f1c0e8'},
+{name:'蔥抓餅加蛋＋豆漿',emoji:'🥞',price:'約 NT$60–120',desc:'想用平價方式解決晚餐，這個組合快速又方便。',color:'#cfbaf0'}];
+const canvas=document.getElementById('wheel'),ctx=canvas.getContext('2d'),spinButton=document.getElementById('spinButton'),againButton=document.getElementById('againButton'),resetButton=document.getElementById('resetButton'),copyButton=document.getElementById('copyButton'),hint=document.getElementById('hint'),resultName=document.getElementById('resultName'),resultDesc=document.getElementById('resultDesc'),metaRow=document.getElementById('metaRow'),resultBox=document.getElementById('resultBox'),dishList=document.getElementById('dishList');let rotation=0,spinning=false,lastDish=null;
+function drawWheel(angle=rotation){const size=canvas.width,center=size/2,radius=size/2-10,slice=Math.PI*2/dishes.length;ctx.clearRect(0,0,size,size);ctx.save();ctx.translate(center,center);ctx.rotate(angle);dishes.forEach((dish,index)=>{const start=-Math.PI/2+index*slice,end=start+slice;ctx.beginPath();ctx.moveTo(0,0);ctx.arc(0,0,radius,start,end);ctx.closePath();ctx.fillStyle=dish.color;ctx.fill();ctx.strokeStyle='#fff';ctx.lineWidth=5;ctx.stroke();const mid=start+slice/2;ctx.save();ctx.rotate(mid);ctx.translate(radius*.67,0);ctx.rotate(Math.PI/2);ctx.textAlign='center';ctx.textBaseline='middle';ctx.font="bold 24px 'Noto Sans TC',sans-serif";ctx.fillStyle='#38404a';ctx.fillText(dish.emoji,0,-15);ctx.font="bold 20px 'Noto Sans TC',sans-serif";ctx.fillText(dish.name.length>5?dish.name.slice(0,5)+'…':dish.name,0,16);ctx.restore()});ctx.restore();ctx.beginPath();ctx.arc(center,center,radius,0,Math.PI*2);ctx.strokeStyle='#fff';ctx.lineWidth=8;ctx.stroke()}
+function renderDishList(){dishList.innerHTML=dishes.map(d=>`<div class="dish"><span>${d.emoji}</span><div><strong>${d.name}</strong><br><small>${d.price}</small></div></div>`).join('')}
+function showResult(d){lastDish=d;resultName.textContent=d.emoji+' '+d.name;resultDesc.textContent=d.desc;metaRow.innerHTML=`<span class="meta">🌙 晚餐提案</span><span class="meta">💰 ${d.price}</span>`;resultBox.classList.remove('pop');void resultBox.offsetWidth;resultBox.classList.add('pop')}
+const TAU = Math.PI * 2;
+const normalizeAngle = angle => ((angle % TAU) + TAU) % TAU;
+
+// 指針固定在正上方；用最後實際停下的角度反推扇區。
+function getIndexAtPointer(angle) {
+  const slice = TAU / dishes.length;
+  return Math.min(dishes.length - 1, Math.floor(normalizeAngle(-angle) / slice));
+}
+function getRotationForIndex(index) {
+  const slice = TAU / dishes.length;
+  return normalizeAngle(-(index + 0.5) * slice);
+}
+function spin() {
+  if (spinning) return;
+  spinning = true;
+  spinButton.disabled = true;
+  againButton.disabled = true;
+  hint.textContent = '轉盤正在努力幫你做決定……';
+
+  const targetIndex = Math.floor(Math.random() * dishes.length);
+  const current = normalizeAngle(rotation);
+  const desired = getRotationForIndex(targetIndex);
+  // 必須加「整數圈」；若使用隨機小數圈數，最後角度會偏移造成指針與結果不符。
+  const extraTurns = (5 + Math.floor(Math.random() * 4)) * TAU;
+  const delta = normalizeAngle(desired - current) + extraTurns;
+  const startRotation = rotation;
+  const endRotation = startRotation + delta;
+  const duration = 3300;
+  const startTime = performance.now();
+
+  function animate(now) {
+    const progress = Math.min((now - startTime) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 4);
+    rotation = startRotation + (endRotation - startRotation) * eased;
+    drawWheel(rotation);
+
+    if (progress < 1) {
+      requestAnimationFrame(animate);
+      return;
+    }
+
+    rotation = normalizeAngle(endRotation);
+    drawWheel(rotation);
+    const landedIndex = getIndexAtPointer(rotation);
+    showResult(dishes[landedIndex]);
+    if (landedIndex !== targetIndex) {
+      console.error('轉盤對位測試異常', { targetIndex, landedIndex, rotation });
+    }
+    hint.textContent = '抽中了！今晚就朝這個方向出發吧 ✨';
+    spinning = false;
+    spinButton.disabled = false;
+    againButton.disabled = false;
+  }
+  requestAnimationFrame(animate);
+}
+function reset(){if(spinning)return;rotation=0;lastDish=null;drawWheel();resultName.textContent='還沒抽選喔！';resultDesc.textContent='深呼吸，讓轉盤幫你決定。每一道都是今晚的好選擇。';metaRow.innerHTML='<span class="meta">🍜 晚餐</span><span class="meta">💰 預算友善</span>';hint.textContent='已重設！準備好就再抽一次吧。';resultBox.classList.remove('pop')}
+async function copyResult(){const text=lastDish?`我今晚抽到：${lastDish.name}（${lastDish.price}）！你今天吃什麼？`:'我還沒抽晚餐！一起來玩「今天吃什麼？」';try{await navigator.clipboard.writeText(text);hint.textContent='結果已複製，可以分享給朋友囉！'}catch(e){const temp=document.createElement('textarea');temp.value=text;temp.setAttribute('readonly','');temp.style.position='fixed';temp.style.opacity='0';document.body.appendChild(temp);temp.select();const ok=document.execCommand('copy');temp.remove();hint.textContent=ok?'結果已複製，可以分享給朋友囉！':'目前無法自動複製，請手動選取結果文字。'}}
+// 自我除錯：逐格測試及 5,000 次隨機起始角度測試；失敗會顯示於 Console。
+(function wheelAlignmentSelfTest() {
+  for (let i = 0; i < dishes.length; i++) {
+    const actual = getIndexAtPointer(getRotationForIndex(i));
+    if (actual !== i) console.error('轉盤扇區對位測試失敗', { expected: i, actual });
+  }
+  for (let trial = 0; trial < 5000; trial++) {
+    const i = Math.floor(Math.random() * dishes.length);
+    const current = Math.random() * TAU;
+    const desired = getRotationForIndex(i);
+    const wholeTurns = (5 + Math.floor(Math.random() * 4)) * TAU;
+    const finalAngle = normalizeAngle(current + normalizeAngle(desired - current) + wholeTurns);
+    const actual = getIndexAtPointer(finalAngle);
+    if (actual !== i) {
+      console.error('隨機旋轉落點測試失敗', { expected: i, actual, finalAngle });
+      break;
+    }
+  }
+})(); 
+spinButton.addEventListener('click',spin);againButton.addEventListener('click',spin);resetButton.addEventListener('click',reset);copyButton.addEventListener('click',copyResult);renderDishList();drawWheel();
+</script></body></html>
